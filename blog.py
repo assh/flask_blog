@@ -1,10 +1,10 @@
 from flask import Flask, render_template, url_for, flash, redirect
 from forms import *
 import os
-import config #remove before deploying
+import configure #remove before deploying
 app = Flask(__name__)
 
-app.config['SECRET_KEY'] = config.SECRET_KEY #remove before deploying
+app.config['SECRET_KEY'] = configure.SECRET_KEY #remove before deploying(change to os.environ.get('SECRET_KEY'))
 post = [
     {
         'author': 'Test 1',
@@ -54,4 +54,4 @@ def login():
 
 
 if __name__ == '__main__':
-    app.run(debug=config.DEBUG) #remove before deploying (DEBUG)
+    app.run(debug=configure.DEBUG) #remove before deploying (DEBUG)
